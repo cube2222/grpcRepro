@@ -1,0 +1,17 @@
+syntax = "proto3";
+package message;
+
+service myService {
+    rpc GetResponse(Member) returns (MemberList) {}
+}
+
+message Member {
+    string Address = 1;
+    int64 Heartbeat = 2;
+    int64 Timestamp = 3;
+    bool Alive = 4;
+}
+
+message MemberList {
+    map<string, Member> list = 1;
+}
